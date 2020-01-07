@@ -2,9 +2,9 @@ const express = require('express') //importa o modulo express
 const app = express() //nova aplicação usando o express
 
 const bodyParser = require('body-parser') //propriedade que entende tudo que estiver no body da pagina
-
+const path = require('path')
 const sqlite = require('sqlite') //importando o banco
-const dbConnection = sqlite.open('banco.sqlite', { Promise }) //conexão com o banco de dados
+const dbConnection = sqlite.open(path.revolve(__dirname, 'banco.sqlite'), { Promise }) //conexão com o banco de dados
 
 const port = process.env.PORT || 3000
 
