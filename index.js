@@ -6,6 +6,8 @@ const bodyParser = require('body-parser') //propriedade que entende tudo que est
 const sqlite = require('sqlite') //importando o banco
 const dbConnection = sqlite.open('banco.sqlite', { Promise }) //conexão com o banco de dados
 
+const port = process.env.PORT || 3000
+
 app.set('view engine', 'ejs') //vai ler as outras partes da pagina
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -90,7 +92,7 @@ const init = async() => {
 init ()
 
 //lista uma porta para o servidor
-app.listen(3000, (err) => { 
+app.listen(port, (err) => { 
     if(err){
         console.log('Não foi possível iniciar o servidor')
     }else{
